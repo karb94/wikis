@@ -1,7 +1,7 @@
 % Homebrew
 
 # Why Do I have X package installed?
-    - llvm: Coc
+* llvm: Coc
 
 List of packages installed:
 ```
