@@ -17,7 +17,7 @@ html/%.html: src/%.md
 	@pandoc "$<" \
 		--from=markdown --to=html5 \
 		--standalone \
-		--css=${base_dir}/src/style.css \
+		--css=${base_dir}/src/style3.css \
 		--output="$@"
 
 clean:

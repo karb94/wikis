@@ -3,6 +3,11 @@
 # Why Do I have X package installed?
 * llvm: Coc
 
+Not code `code line` dffsd sdfdsf sdf sdf asdf a asdf asd adf adf asdf sdf sdf adf f sdf asf sadf sdf asfd sfd asdf af sdf asf sdf sd fas
+Not code `code line` dffsd sdfdsf sdf sdf asdf a asdf asd adf adf asdf sdf sdf adf f sdf asf sadf sdf asfd sfd asdf af sdf asf sdf sd fas
+Not code code line dffsd sdfdsf sdf sdf asdf a asdf asd adf adf asdf sdf sdf adf f sdf asf sadf sdf asfd sfd asdf af sdf asf sdf sd fas
+Not code ```code block```
+
 List of packages installed:
 ```
 bash
