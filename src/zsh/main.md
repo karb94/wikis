@@ -6,6 +6,12 @@
 in the zsh documentation.
 * To insert new line characters in the prompt see [FAQ 3.13](http://zsh.sourceforge.net/FAQ/zshfaq03.html)
 of the zsh documentation.
+* To add colors to prompt see [ansi escape codes](../aec/main.html). Colors can
+be added by autoloading and executing the `colors` function. *Note*: ansi escape
+codes are more portable.
+* For zsh to interpret special characters (like `\n`) and escape codes they must
+be quoted by `$'` and `'`. Example: `$'\n'`. Read the [Quoting](http://zsh.sourceforge.net/Doc/Release/Shell-Grammar.html#Quoting)
+section in the zsh documentation.
 
 Example prompt:
 ```zsh
@@ -35,20 +41,3 @@ array=(one two three twenty)
 
 args $array # output: 4
 ```
-
-## Ansi escape codes
-The list of the first 16 colors is usually set to match the desired colorscheme
-(see [Gruvbox](https://github.com/morhetz/gruvbox) as an example) via your
-terminal configuration file. After you have changed those (or any) colors in
-your terminal configuration the ansi color codes will refer to those colors. To
-access those colors you can use an [ansi escape code](https://en.wikipedia.org/wiki/ANSI_escape_code):
-
-```
-\e[38;5;1m     # Color defined as color 1 in the terminal configuration
-\e[38;5;4m     # Color defined as color 4 in the terminal configuration
-\e[1m          # Bold font
-\e[m           # Resets all attributes (colors, type of font etc.)
-\e[0m          # Same as \e[m
-```
-These codes are universal so they should be used over any shell specific
-variables for portability.
