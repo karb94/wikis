@@ -3,7 +3,8 @@
 # This is the main file
 
 ## Table of contents
-    [Development](./dev/makefile.html)
-[Homebrew](./homebrew/main.html)
-[MacOS](./macos/main.html)
-[Python](./python/index.html)
+* [Development](./dev/makefile.html)
+* [Homebrew](./homebrew/main.html)
+* [MacOS](./macos/main.html)
+* [Python](./python/index.html)
+* [zsh](./zsh/main.html)

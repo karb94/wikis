@@ -1,5 +1,5 @@
 html {
-    font-size: 90%;
+    font-size: 100%;
     overflow-y: scroll;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
@@ -9,7 +9,7 @@ body {
   max-width: 40em;
   margin: auto;
   font-size: 100%;
-  line-height: 130%;
+  line-height: 150%;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -19,12 +19,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5em;
 }
 
-h1 {font-size: 1.5em; color: #000000;}
-h2 {font-size: 1.3em; color: #404040;}
-h3 {font-size: 1.1em; color: #707070;}
-h4 {font-size: 0.9em; color: #909090;}
-h5 {font-size: 0.7em; color: #989898;}
-h6 {font-size: 0.5em; color: #9c9c9c;}
+h1 {font-size: 2.0em; color: #000000;}
+h2 {font-size: 1.8em; color: #404040;}
+h3 {font-size: 1.6em; color: #707070;}
+h4 {font-size: 1.3em; color: #909090;}
 
 p, pre, blockquote, table, ul, ol, dl {
   margin-top: 0.1em;
