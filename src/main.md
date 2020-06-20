@@ -7,4 +7,5 @@
 * [Homebrew](./homebrew/main.html)
 * [MacOS](./macos/main.html)
 * [Python](./python/index.html)
+* [terminal](./terminal/main.html)
 * [zsh](./zsh/main.html)

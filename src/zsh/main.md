@@ -6,7 +6,7 @@
 in the zsh documentation.
 * To insert new line characters in the prompt see [FAQ 3.13](http://zsh.sourceforge.net/FAQ/zshfaq03.html)
 of the zsh documentation.
-* To add colors to prompt see [ansi escape codes](../aec/main.html). Colors can
+* To add colors to prompt see [ansi escape codes](../terminal/ansi.html). Colors can
 be added by autoloading and executing the `colors` function. *Note*: ansi escape
 codes are more portable.
 * For zsh to interpret special characters (like `\n`) and escape codes they must
