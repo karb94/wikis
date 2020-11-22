@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>zsh</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="/home/carles/wikis/src/css/style3.css" />
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header>
+<h1 class="title">zsh</h1>
+</header>
+<h2 id="prompt-expansion">Prompt expansion</h2>
+<ul>
+<li>For a general explanation on how to set up the prompt see <a href="http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html">Prompt Expansion</a> in the zsh documentation.</li>
+<li>To insert new line characters in the prompt see <a href="http://zsh.sourceforge.net/FAQ/zshfaq03.html">FAQ 3.13</a> of the zsh documentation.</li>
+</ul>
+<p>Example prompt:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="ot">PS1=</span><span class="st">$&#39;</span><span class="dt">\n</span><span class="st">%{</span><span class="dt">\e</span><span class="st">[1m%}%{</span><span class="dt">\e</span><span class="st">[38;5;6m%}%n:%{</span><span class="dt">\e</span><span class="st">[38;5;2m%}%~/</span><span class="dt">\n</span><span class="st">%{</span><span class="dt">\e</span><span class="st">[0m%}$ &#39;</span></a></code></pre></div>
+<h2 id="word-splitting-doesnt-work-by-default-like-bash-and-it-shouldnt">Word splitting doesn’t work by default like bash (and it shouldn’t)</h2>
+<p>By default, zsh does not have that behaviour: the variable remains intact. (This is not a bug! See below.) The option <code>SH_WORD_SPLIT</code> exists to provide compatibility. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="ot">var=</span><span class="st">&quot;foo bar&quot;</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="fu">args()</span> <span class="kw">{</span> <span class="kw">echo</span> <span class="ot">$#</span>; <span class="kw">}</span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">args <span class="ot">$var</span></a></code></pre></div>
+<p>produces the output <code>1</code>. But if the word splitting option is activated with <code>setopt shwordsplit</code> the same function produces thee output <code>2</code>. Unless you need strict sh/ksh compatibility, you should ask yourself whether you really want this behaviour, as it can produce unexpected effects for variables with entirely innocuous embedded spaces. This can cause horrendous quoting problems when invoking scripts from other shells. The natural way to produce word-splitting behaviour in zsh is via arrays. For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode zsh"><code class="sourceCode zsh"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">set</span> -A array one two three twenty</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># or</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="ot">array=(</span>one two three twenty<span class="ot">)</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">args <span class="ot">$array</span> <span class="co"># output: 4</span></a></code></pre></div>
+<h2 id="ansi-escape-codes">Ansi escape codes</h2>
+<p>The list of the first 16 colors is usually set to match the desired colorscheme (see <a href="https://github.com/morhetz/gruvbox">Gruvbox</a> as an example) via your terminal configuration file. After you have changed those (or any) colors in your terminal configuration the ansi color codes will refer to those colors. To access those colors you can use an <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">ansi escape code</a>:</p>
+<pre><code>\e[38;5;1m     # Color defined as color 1 in the terminal configuration
+\e[38;5;4m     # Color defined as color 4 in the terminal configuration
+\e[1m          # Bold font
+\e[m           # Resets all attributes (colors, type of font etc.)
+\e[0m          # Same as \e[m</code></pre>
+<p>These codes are universal so they should be used over any shell specific variables for portability.</p>
+</body>
+</html>
